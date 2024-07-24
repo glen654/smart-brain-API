@@ -36,6 +36,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/signin', (req,res) => {
+    bcrypt.compare("apples", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
+        console.log('first guess',res);
+    });
+
+    bcrypt.compare("veggies", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
+        console.log('second guess',res);
+    });
     if(req.body.email === database.users[0].email && req.body.password === database.users[0].password){
         res.json('success');
     }else{
@@ -87,17 +94,10 @@ app.put('/image', (req,res) => {
     }
 });
 
-bcrypt.hash("bacon", null, null, function(err, hash) {
-    // Store hash in your password DB.
-});
+
 
 // Load hash from your password DB.
-bcrypt.compare("bacon", hash, function(err, res) {
-    // res == true
-});
-bcrypt.compare("veggies", hash, function(err, res) {
-    // res = false
-});
+
 
 app.listen(3000, () => {
     console.log('app is runnig');
