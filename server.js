@@ -12,6 +12,7 @@ const database = {
         {
             id: '123',
             name: 'John',
+            password: 'cookies',
             email: 'john@gmail.com',
             entries: 0,
             joined: new Date()
@@ -19,16 +20,10 @@ const database = {
         {
             id: '124',
             name: 'Sally',
+            password: 'bananas',
             email: 'sally@gmail.com',
             entries: 0,
             joined: new Date()
-        }
-    ],
-    login: [
-        {
-            id: '987',
-            hash: '',
-            email: 'john@gmail.com'
         }
     ]
 }
@@ -38,13 +33,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/signin', (req,res) => {
-    bcrypt.compare("apples", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
-        console.log('first guess',res);
-    });
+    // bcrypt.compare("apples", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
+    //     console.log('first guess',res);
+    // });
 
-    bcrypt.compare("veggies", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
-        console.log('second guess',res);
-    });
+    // bcrypt.compare("veggies", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
+    //     console.log('second guess',res);
+    // });
     if(req.body.email === database.users[0].email && req.body.password === database.users[0].password){
         res.json('success');
     }else{
