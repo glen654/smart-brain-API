@@ -33,15 +33,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/signin', (req,res) => {
-    // bcrypt.compare("apples", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
-    //     console.log('first guess',res);
-    // });
-
-    // bcrypt.compare("veggies", '$2a$10$r.7l.OXQZ8owBxFMxfS4YO4Pl/TwggHYVKfcrOnK5jU0oznQWI332', function(err, res) {
-    //     console.log('second guess',res);
-    // });
     if(req.body.email === database.users[0].email && req.body.password === database.users[0].password){
-        res.json('success');
+        res.json(database.users[0]);
     }else{
         res.status(400).json('error logging in');
     }
@@ -89,10 +82,6 @@ app.put('/image', (req,res) => {
         res.status(400).json('Not Found');
     }
 });
-
-
-
-// Load hash from your password DB.
 
 
 app.listen(3000, () => {
