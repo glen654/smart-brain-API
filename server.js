@@ -11,7 +11,7 @@ knex({
       port: 3306,
       user: 'postgres',
       password: '1234',
-      database: 'smart-brain',
+      database: 'smart-brain'
     },
   });
 
