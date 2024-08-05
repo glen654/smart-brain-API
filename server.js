@@ -2,16 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
-const knex = require('knex')
+const knex = require('knex');
 
 knex({
-    client: 'mysql',
+    client: 'pg',
     connection: {
       host: '127.0.0.1',
       port: 3306,
-      user: 'your_database_user',
-      password: 'your_database_password',
-      database: 'myapp_test',
+      user: 'postgres',
+      password: '1234',
+      database: 'smart-brain',
     },
   });
 
