@@ -8,7 +8,7 @@ const db = knex({
     client: 'pg',
     connection: {
       host: '127.0.0.1',
-      port: 3306,
+      port: 5432,
       user: 'postgres',
       password: '1234',
       database: 'smart-brain'
@@ -57,8 +57,9 @@ app.post('/register', (req,res) => {
     const { email, name, password } = req.body;
     db('users').insert({
         email:email,
-        name:name
-    })
+        name:name,
+        joined: new Date()
+    }).then(console.log)
     res.json(database.users[database.users.length-1]);
 });
 
