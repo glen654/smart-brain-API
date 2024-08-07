@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 
-knex({
+const db = knex({
     client: 'pg',
     connection: {
       host: '127.0.0.1',
@@ -14,6 +14,10 @@ knex({
       database: 'smart-brain'
     },
   });
+
+db.select('*').from('users').then(data => {
+    console.log(data);
+});
 
 const app = express();
 app.use(bodyParser.json());
