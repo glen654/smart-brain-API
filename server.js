@@ -23,7 +23,7 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-    res.send(database.users);
+    res.send('success');
 });
 
 app.post('/signin', (req,res) => {
@@ -59,7 +59,7 @@ app.post('/register', (req,res) => {
             return trx('users')
             .returning('*')
             .insert({
-                email:loginEmail[0].loginEmail,
+                email:loginEmail[0].email,
                 name:name,
                 joined:new Date()
             })
