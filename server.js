@@ -39,7 +39,7 @@ app.get('/profile/:id', (req,res) => {profile.handleProfileGet(req,res,db)});
 
 app.put('/image', (req,res) => {image.handleImage(req,res,db)});
 
-app.post('/imageurl', (req, res) => { image.handleApiCalls(req, res)})
+app.post('/imageUrl', (req, res) => { image.handleApiCalls(req, res)})
 
 
 app.listen(3000, () => {
