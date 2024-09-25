@@ -43,7 +43,7 @@ app.post('/imageUrl', (req, res) => { image.handleApiCalls(req, res)})
 
 
 app.listen(3000, () => {
-    console.log('app is runnig');
+    console.log('app is runnig on port 3000');
 });
 
 /*
